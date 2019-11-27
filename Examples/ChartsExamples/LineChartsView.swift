@@ -1,8 +1,13 @@
 import SwiftUI
+import Charts
 
 struct LineChartsView: View {
     var body: some View {
-        Text("Line Charts")
+        Chart(data: [0.1, 0.9, 0.1])
+            .frame(height: 300)
+            .chartStyle(
+                LineChartStyle(lineColor: .blue, lineWidth: 3)
+            )
     }
 }
 
