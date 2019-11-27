@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Charts",
+        "repositoryURL": "git@github.com:SwiftUIExtensions/Charts.git",
+        "state": {
+          "branch": "master",
+          "revision": "7292db3f9659c6c11bd5eb1342eb6b367cb13bbb",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
