@@ -3,7 +3,7 @@
 Build custom charts with SwiftUI
 
 <center>
-<img src="Resources/chart1.png"/>
+<img src="Resources/customChart.png"/>
 </center>
 
 Open `/Examples/ChartsExamples.xcodeproj` for more examples for iOS, macOS
@@ -11,6 +11,10 @@ Open `/Examples/ChartsExamples.xcodeproj` for more examples for iOS, macOS
 ## Styles
 
 ### LineChartStyle
+<center>
+<img src="Resources/lineChart.png"/>
+</center>
+
 ```swift
 Chart(data: [0.1, 0.3, 0.2, 0.5, 0.4, 0.9, 0.1])
     .chartStyle(
@@ -19,12 +23,28 @@ Chart(data: [0.1, 0.3, 0.2, 0.5, 0.4, 0.9, 0.1])
 ```
 
 ### AreaChartStyle
+<center>
+<img src="Resources/areaChart.png"/>
+</center>
+
 ```swift
 Chart(data: [0.1, 0.3, 0.2, 0.5, 0.4, 0.9, 0.1])
     .chartStyle(
         AreaChartStyle(.quadCurve, fill:
             LinearGradient(gradient: .init(colors: [Color.blue.opacity(0.2), Color.blue.opacity(0.05)]), startPoint: .top, endPoint: .bottom)
         )
+    )
+```
+
+### ColumnChartStyle
+<center>
+<img src="Resources/columnChart.png"/>
+</center>
+
+```swift
+Chart(data: [0.1, 0.3, 0.2, 0.5, 0.4, 0.9, 0.1])
+    .chartStyle(
+        ColumnChartStyle(column: Capsule().foregroundColor(.green), spacing: 2)
     )
 ```
 
