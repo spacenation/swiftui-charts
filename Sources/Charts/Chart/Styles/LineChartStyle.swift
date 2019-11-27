@@ -2,11 +2,6 @@ import SwiftUI
 import Shapes
 
 public struct LineChartStyle: ChartStyle {
-    public enum LineType {
-        case line
-        case quadCurve
-    }
-    
     private let lineType: LineType
     private let lineColor: Color
     private let lineWidth: CGFloat
