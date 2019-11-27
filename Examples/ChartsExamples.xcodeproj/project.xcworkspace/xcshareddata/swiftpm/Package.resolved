@@ -2,12 +2,12 @@
   "object": {
     "pins": [
       {
-        "package": "Charts",
-        "repositoryURL": "git@github.com:SwiftUIExtensions/Charts.git",
+        "package": "Shapes",
+        "repositoryURL": "https://github.com/SwiftUIExtensions/Shapes.git",
         "state": {
-          "branch": "master",
-          "revision": "7292db3f9659c6c11bd5eb1342eb6b367cb13bbb",
-          "version": null
+          "branch": null,
+          "revision": "dcf452222385e11b5a89bc68400bf5ab4b2abf98",
+          "version": "0.0.4"
         }
       }
     ]
