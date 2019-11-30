@@ -1,7 +1,8 @@
 import SwiftUI
 import Charts
+import Shapes
 
-struct LineChartsView: View {
+struct ChartsView: View {
     @State var data1: [CGFloat] = (0...20).map { _ in .random(in: 0.1...1.0) }
     @State var data2: [CGFloat] = (0...50).map { _ in .random(in: 0.1...1.0) }
     @State var data3: [CGFloat] = (0...100).map { _ in .random(in: 0.1...1.0) }
@@ -17,8 +18,11 @@ struct LineChartsView: View {
                     LineChartStyle(.quadCurve, lineColor: .blue, lineWidth: 5)
                 )
                 .padding()
-                .background(Color.gray.opacity(0.1))
-                .cornerRadius(16)
+                .background(
+                    GridPattern(horizontalLines: data1.count, verticalLines: 20)
+                        .inset(by: 1)
+                        .stroke(Color.gray.opacity(0.1), style: .init(lineWidth: 2, lineCap: .round))
+                )
                 .frame(height: 300)
                 .padding()
             
@@ -28,8 +32,14 @@ struct LineChartsView: View {
                         LinearGradient(gradient: .init(colors: [Color.red.opacity(0.8), Color.red.opacity(0.2)]), startPoint: .top, endPoint: .bottom)
                     )
                 )
-                .padding()
-                .background(Color.gray.opacity(0.1))
+                .background(
+                    Color.gray.opacity(0.1)
+                        .overlay(
+                            GridPattern(horizontalLines: data2.count)
+                                .inset(by: 1)
+                                .stroke(Color.red.opacity(0.2), style: .init(lineWidth: 1, lineCap: .round))
+                        )
+                )
                 .cornerRadius(16)
                 .frame(height: 300)
                 .padding()
@@ -78,6 +88,6 @@ struct LineChartsView: View {
 
 struct LineChartsView_Previews: PreviewProvider {
     static var previews: some View {
-        LineChartsView()
+        ChartsView()
     }
 }
