@@ -20,8 +20,8 @@
 		FA8672ED238E1DA800226819 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA8672EB238E1DA800226819 /* Main.storyboard */; };
 		FA8672F5238E1DCD00226819 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = FA8672F4238E1DCD00226819 /* Charts */; };
 		FA8672F7238E1DD200226819 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = FA8672F6238E1DD200226819 /* Charts */; };
-		FA8672FA238E1EEB00226819 /* LineChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8672F9238E1EEB00226819 /* LineChartsView.swift */; };
-		FA8672FB238E1EEB00226819 /* LineChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8672F9238E1EEB00226819 /* LineChartsView.swift */; };
+		FA8672FA238E1EEB00226819 /* ChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8672F9238E1EEB00226819 /* ChartsView.swift */; };
+		FA8672FB238E1EEB00226819 /* ChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8672F9238E1EEB00226819 /* ChartsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +42,7 @@
 		FA8672EC238E1DA800226819 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA8672EE238E1DA800226819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA8672EF238E1DA800226819 /* ChartsExamples_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChartsExamples_macOS.entitlements; sourceTree = "<group>"; };
-		FA8672F9238E1EEB00226819 /* LineChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartsView.swift; sourceTree = "<group>"; };
+		FA8672F9238E1EEB00226819 /* ChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +140,7 @@
 		FA8672F8238E1EAA00226819 /* ChartsExamples */ = {
 			isa = PBXGroup;
 			children = (
-				FA8672F9238E1EEB00226819 /* LineChartsView.swift */,
+				FA8672F9238E1EEB00226819 /* ChartsView.swift */,
 			);
 			path = ChartsExamples;
 			sourceTree = "<group>";
@@ -258,7 +258,7 @@
 				FA8672CB238E1D4500226819 /* AppDelegate.swift in Sources */,
 				FA8672CD238E1D4500226819 /* SceneDelegate.swift in Sources */,
 				FA8672CF238E1D4500226819 /* ContentView.swift in Sources */,
-				FA8672FA238E1EEB00226819 /* LineChartsView.swift in Sources */,
+				FA8672FA238E1EEB00226819 /* ChartsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA8672FB238E1EEB00226819 /* LineChartsView.swift in Sources */,
+				FA8672FB238E1EEB00226819 /* ChartsView.swift in Sources */,
 				FA8672E5238E1DA700226819 /* ContentView.swift in Sources */,
 				FA8672E3238E1DA700226819 /* AppDelegate.swift in Sources */,
 			);
