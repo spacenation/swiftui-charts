@@ -18,6 +18,10 @@ extension Chart {
 
 extension Chart {
     public init<Data: RandomAccessCollection>(data: Data) where Data.Element : BinaryFloatingPoint {
-        self.init(ChartStyleConfiguration(data: data.map { CGFloat($0) }))
+        self.init(ChartStyleConfiguration(dataMatrix: data.map { [CGFloat($0)] }))
+    }
+    
+    public init<Data: RandomAccessCollection>(data: [Data]) where Data.Element : BinaryFloatingPoint {
+        self.init(ChartStyleConfiguration(dataMatrix: data.map({ $0.map { CGFloat($0) } })))
     }
 }

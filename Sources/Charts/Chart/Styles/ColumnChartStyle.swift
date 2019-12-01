@@ -6,7 +6,11 @@ public struct ColumnChartStyle<Column: View>: ChartStyle {
     private let spacing: CGFloat
     
     public func makeBody(configuration: Self.Configuration) -> some View {
-        let data: [ColumnData] = configuration.data.enumerated().map { ColumnData(id: $0.offset, data: $0.element) }
+        let data: [ColumnData] = configuration.dataMatrix
+            .map { $0.reduce(0, +) }
+            .enumerated()
+            .map { ColumnData(id: $0.offset, data: $0.element) }
+        
         return GeometryReader { geometry in
             self.columnChart(in: geometry, data: data)
         }
