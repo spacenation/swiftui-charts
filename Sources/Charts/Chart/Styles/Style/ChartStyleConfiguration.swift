@@ -1,5 +1,5 @@
 import SwiftUI
 
 public struct ChartStyleConfiguration {
-    public let data: [CGFloat]
+    public let dataMatrix: [[CGFloat]]
 }

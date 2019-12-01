@@ -7,7 +7,7 @@ public struct AreaChartStyle<Fill: View>: ChartStyle {
     
     public func makeBody(configuration: Self.Configuration) -> some View {
         fill.clipShape(
-            ChartArea(unitData: configuration.data, lineType: self.lineType)
+            ChartArea(unitData: configuration.dataMatrix.map { $0.reduce(0, +) }, lineType: self.lineType)
         )
     }
     
