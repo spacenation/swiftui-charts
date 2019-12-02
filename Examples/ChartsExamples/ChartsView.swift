@@ -11,7 +11,7 @@ struct ChartsView: View {
     @State var data5: [CGFloat] = (0...100).map { _ in .random(in: 0.1...0.3) }
     @State var data6: [CGFloat] = (0...100).map { _ in .random(in: 0.3...0.4) }
     
-    @State var matrixData1: [[CGFloat]] = (0..<50).map { _ in (0..<3).map { _ in CGFloat.random(in: 0.00...0.33) } }
+    @State var matrixData1: [[CGFloat]] = (0..<20).map { _ in (0..<3).map { _ in CGFloat.random(in: 0.00...0.33) } }
     
     var body: some View {
         ScrollView {
@@ -60,8 +60,30 @@ struct ChartsView: View {
                 .chartStyle(
                     StackedColumnChartStyle(spacing: 2, colors: [.yellow, .orange, .red])
                 )
+                .background(
+                    Color.gray.opacity(0.1)
+                        .overlay(
+                            GridPattern(horizontalLines: data2.count)
+                                .inset(by: 1)
+                                .stroke(Color.red.opacity(0.2), style: .init(lineWidth: 1, lineCap: .round))
+                        )
+                )
+                .cornerRadius(16)
+                .frame(height: 300)
                 .padding()
-                .background(Color.gray.opacity(0.1))
+            
+            Chart(data: matrixData1)
+                .chartStyle(
+                    StackedAreaChartStyle(.quadCurve, colors: [.yellow, .orange, .red])
+                )
+                .background(
+                    Color.gray.opacity(0.1)
+                        .overlay(
+                            GridPattern(horizontalLines: data2.count)
+                                .inset(by: 1)
+                                .stroke(Color.red.opacity(0.2), style: .init(lineWidth: 1, lineCap: .round))
+                        )
+                )
                 .cornerRadius(16)
                 .frame(height: 300)
                 .padding()
