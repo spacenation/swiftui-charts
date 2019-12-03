@@ -10,7 +10,7 @@ Open `/Examples/ChartsExamples.xcodeproj` for more examples for iOS, macOS
 
 ## Styles
 
-### LineChartStyle
+### Line
 <center>
 <img src="Resources/lineChart.png"/>
 </center>
@@ -22,7 +22,7 @@ Chart(data: [0.1, 0.3, 0.2, 0.5, 0.4, 0.9, 0.1])
     )
 ```
 
-### AreaChartStyle
+### Area
 <center>
 <img src="Resources/areaChart.png"/>
 </center>
@@ -36,7 +36,7 @@ Chart(data: [0.1, 0.3, 0.2, 0.5, 0.4, 0.9, 0.1])
     )
 ```
 
-### ColumnChartStyle
+### Column
 <center>
 <img src="Resources/columnChart.png"/>
 </center>
