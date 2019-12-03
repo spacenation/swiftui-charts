@@ -36,6 +36,15 @@ Chart(data: [0.1, 0.3, 0.2, 0.5, 0.4, 0.9, 0.1])
     )
 ```
 
+### Stacked Area
+
+```swift
+Chart(data: matrix)
+    .chartStyle(
+        StackedAreaChartStyle(.quadCurve, colors: [.yellow, .orange, .red])
+    )
+```
+
 ### Column
 <center>
 <img src="Resources/columnChart.png"/>
@@ -45,6 +54,15 @@ Chart(data: [0.1, 0.3, 0.2, 0.5, 0.4, 0.9, 0.1])
 Chart(data: [0.1, 0.3, 0.2, 0.5, 0.4, 0.9, 0.1])
     .chartStyle(
         ColumnChartStyle(column: Capsule().foregroundColor(.green), spacing: 2)
+    )
+```
+
+### Stacked Column
+
+```swift
+Chart(data: matrix)
+    .chartStyle(
+        StackedColumnChartStyle(spacing: 2, colors: [.yellow, .orange, .red])
     )
 ```
 
