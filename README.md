@@ -10,7 +10,7 @@ Open `/Examples/ChartsExamples.xcodeproj` for more examples for iOS, macOS
 
 ## Styles
 
-### LineChartStyle
+### Line
 <center>
 <img src="Resources/lineChart.png"/>
 </center>
@@ -22,7 +22,7 @@ Chart(data: [0.1, 0.3, 0.2, 0.5, 0.4, 0.9, 0.1])
     )
 ```
 
-### AreaChartStyle
+### Area
 <center>
 <img src="Resources/areaChart.png"/>
 </center>
@@ -36,7 +36,16 @@ Chart(data: [0.1, 0.3, 0.2, 0.5, 0.4, 0.9, 0.1])
     )
 ```
 
-### ColumnChartStyle
+### Stacked Area
+
+```swift
+Chart(data: matrix)
+    .chartStyle(
+        StackedAreaChartStyle(.quadCurve, colors: [.yellow, .orange, .red])
+    )
+```
+
+### Column
 <center>
 <img src="Resources/columnChart.png"/>
 </center>
@@ -45,6 +54,15 @@ Chart(data: [0.1, 0.3, 0.2, 0.5, 0.4, 0.9, 0.1])
 Chart(data: [0.1, 0.3, 0.2, 0.5, 0.4, 0.9, 0.1])
     .chartStyle(
         ColumnChartStyle(column: Capsule().foregroundColor(.green), spacing: 2)
+    )
+```
+
+### Stacked Column
+
+```swift
+Chart(data: matrix)
+    .chartStyle(
+        StackedColumnChartStyle(spacing: 2, colors: [.yellow, .orange, .red])
     )
 ```
 
