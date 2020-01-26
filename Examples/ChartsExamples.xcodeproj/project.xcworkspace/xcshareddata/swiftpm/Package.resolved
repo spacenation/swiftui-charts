@@ -3,11 +3,11 @@
     "pins": [
       {
         "package": "Shapes",
-        "repositoryURL": "https://github.com/SwiftUIExtensions/Shapes.git",
+        "repositoryURL": "https://github.com/swift-extensions/shapes.git",
         "state": {
           "branch": null,
           "revision": "4181f01df194e5ee0c5937cc567ec97d16ef7362",
-          "version": "0.0.6"
+          "version": "0.1.0"
         }
       }
     ]
