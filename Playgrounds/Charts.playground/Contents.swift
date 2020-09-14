@@ -2,7 +2,6 @@
 import SwiftUI
 import Charts
 import Shapes
-
 import PlaygroundSupport
 
 struct ContentView: View {
@@ -137,6 +136,7 @@ struct ContentView: View {
     }
 
     @State var selectedChart = 1
+    
     var body: some View {
         VStack {
             Picker("Charts", selection: $selectedChart) {
@@ -154,7 +154,7 @@ struct ContentView: View {
                 if selectedChart == 4 { chart4 }
                 if selectedChart == 5 { chart5 }
             }
-        }.frame(width: 700)
+        }
     }
 }
 
