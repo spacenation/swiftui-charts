@@ -6,7 +6,7 @@ final class ChartsTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual(Charts().text, "Hello, World!")
+        //XCTAssertEqual(Charts().text, "Hello, World!")
     }
 
     static var allTests = [
