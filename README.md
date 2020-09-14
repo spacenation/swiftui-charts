@@ -6,7 +6,7 @@ Build custom charts with SwiftUI
 <img src="Resources/customChart.png"/>
 </center>
 
-Open `/Examples/ChartsExamples.xcodeproj` for more examples for iOS, macOS
+See `/Playgrounds/Charts` for more examples
 
 ## Styles
 
@@ -71,7 +71,7 @@ Chart(data: matrix)
 - Mac Catalyst 13.0+
 - macOS 10.15+
 - watchOS 6+
-- Xcode 11.0+
+- Xcode 12.0+
 
 ## Roadmap
 -  Bar chart style
