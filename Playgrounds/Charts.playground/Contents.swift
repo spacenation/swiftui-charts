@@ -15,6 +15,8 @@ struct ContentView: View {
 
     @State var matrixData1: [[CGFloat]] = (0..<20).map { _ in (0..<3).map { _ in CGFloat.random(in: 0.00...0.33) } }
 
+    @State var trim: CGFloat = 0
+
     var chart1: some View {
         HStack {
             VStack {
@@ -33,7 +35,7 @@ struct ContentView: View {
             VStack {
                 Chart(data: data1)
                     .chartStyle(
-                        LineChartStyle(.quadCurve, lineColor: .blue, lineWidth: 5)
+                        LineChartStyle(.quadCurve, lineColor: .blue, lineWidth: 5, trimTo: $trim)
                     )
                     .padding()
                     .background(
@@ -42,6 +44,12 @@ struct ContentView: View {
                             .stroke(Color.gray.opacity(0.1), style: .init(lineWidth: 2, lineCap: .round))
                     )
                     .frame(height: 300)
+                    .onAppear {
+                        trim = 0
+                        withAnimation(.easeInOut(duration: 3)) {
+                            trim = 1
+                        }
+                    }
 
 
                 AxisLabels(.horizontal, data: 2010...2020, id: \.self) {
