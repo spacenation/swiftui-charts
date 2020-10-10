@@ -6,8 +6,6 @@ Build custom charts with SwiftUI
 <img src="Resources/customChart.png"/>
 </center>
 
-See `/Playgrounds/Charts` for more examples
-
 ## Styles
 
 ### Line
