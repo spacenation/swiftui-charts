@@ -37,3 +37,9 @@ public struct AxisLabels<Content: View>: View {
         self.labels = data.map({ AnyView(label($0)) })
     }
 }
+
+struct AxisLabels_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+    }
+}

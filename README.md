@@ -66,13 +66,6 @@ Chart(data: matrix)
     )
 ```
 
-## SDKs
-- iOS 13+
-- Mac Catalyst 13.0+
-- macOS 10.15+
-- watchOS 6+
-- Xcode 12.0+
-
 ## Roadmap
 -  Bar chart style
 
