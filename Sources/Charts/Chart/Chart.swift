@@ -33,8 +33,10 @@ struct Chart_Previews: PreviewProvider {
             LineChartDemo()
             AreaChartDemo()
             ColumnChartDemo()
+            BarChartDemo()
             StackedAreaChartDemo()
             CompositeChartDemo()
+            
         }
     }
 }
@@ -121,6 +123,21 @@ private struct ColumnChartDemo: View {
         Chart(data: data3)
             .chartStyle(
                 ColumnChartStyle(column: Capsule().foregroundColor(.green), spacing: 2)
+            )
+            .padding()
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(16)
+            .padding()
+    }
+}
+
+private struct BarChartDemo: View {
+    @State var data3: [CGFloat] = (0..<10).map { _ in .random(in: 0.1...1.0) }
+    
+    var body: some View {
+        Chart(data: data3)
+            .chartStyle(
+                BarChartStyle(bar: Capsule().foregroundColor(.green), spacing: 2)
             )
             .padding()
             .background(Color.gray.opacity(0.1))
