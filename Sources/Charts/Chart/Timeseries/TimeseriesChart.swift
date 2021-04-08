@@ -16,9 +16,9 @@ public struct TimeseriesChart: View {
     @Binding private var trimFrom: CGFloat
     @Binding private var trimTo: CGFloat
     
-    private let timeseriesData: [[TimeEntry]]
+    private let timeseriesData: [[Float]]
     
-    public init(_ timeseriesData: [[TimeEntry]], lineColors: [Color], lineWidth: CGFloat = 1, trimFrom: Binding<CGFloat> = .constant(0), trimTo: Binding<CGFloat> = .constant(1)) {
+    public init(_ timeseriesData: [[Float]], lineColors: [Color], lineWidth: CGFloat = 1, trimFrom: Binding<CGFloat> = .constant(0), trimTo: Binding<CGFloat> = .constant(1)) {
         self.timeseriesData = timeseriesData
         self.lineColors = lineColors
         self.lineWidth = lineWidth
@@ -29,7 +29,7 @@ public struct TimeseriesChart: View {
     public var body: some View {
         ZStack {
             ForEach(0..<self.timeseriesData.count) { (idx) in
-                Chart(data: self.timeseriesData[idx].map{$0.y})
+                Chart(data: self.timeseriesData[idx])
                     .chartStyle(LineChartStyle(.line, lineColor: self.lineColors[idx], lineWidth: self.lineWidth))
             }
         }

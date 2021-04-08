@@ -205,13 +205,13 @@ private struct CompositeChartDemo: View {
 }
 
 private struct TimeseriesChartDemo: View {
-    @State var timeseriesData: [[TimeseriesChart.TimeEntry]] = {
+    @State var timeseriesData: [[Float]] = {
         let times = ["2020-01-01", "2020-01-02", "2020-01-03", "2020-01-04", "2020-01-05", "2020-01-06", "2020-01-07"]
         
-        var timeseries = [[TimeseriesChart.TimeEntry]]()
-        timeseries.append(times.map {TimeseriesChart.TimeEntry(x: $0, y: .random(in: 0.0...1.0))})
-        timeseries.append(times.map {TimeseriesChart.TimeEntry(x: $0, y: .random(in: 0.0...1.0))})
-        timeseries.append(times.map {TimeseriesChart.TimeEntry(x: $0, y: .random(in: 0.0...1.0))})
+        var timeseries = [[Float]]()
+        timeseries.append(times.map {_ in Float.random(in: 0.0...1.0)})
+        timeseries.append(times.map {_ in Float.random(in: 0.0...1.0)})
+        timeseries.append(times.map {_ in Float.random(in: 0.0...1.0)})
         
         return timeseries
     }()
