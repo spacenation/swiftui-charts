@@ -60,7 +60,7 @@ Chart(data: [0.1, 0.3, 0.2, 0.5, 0.4, 0.9, 0.1])
 ```swift
 Chart(data: matrix)
     .chartStyle(
-        StackedColumnChartStyle(spacing: 2, colors: [.yellow, .orange, .red])
+        StackedColumnChartStyle(spacing: 2, cornerRadius: 3, colors: [.yellow, .orange, .red])
     )
 ```
 

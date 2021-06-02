@@ -4,6 +4,7 @@ import Shapes
 public struct StackedColumnChartStyle<Column: View>: ChartStyle {
     private let spacing: CGFloat
     private let column: ([CGFloat]) -> Column
+    private let cornerRadius: CGFloat
     
     public func makeBody(configuration: Self.Configuration) -> some View {
         GeometryReader { geometry in
@@ -20,6 +21,7 @@ public struct StackedColumnChartStyle<Column: View>: ChartStyle {
                     .alignmentGuide(.leading, computeValue: { _ in self.leadingAlignmentGuide(for: enumeratedData.offset, in: geometry.size.width, dataCount: data.count) })
                     .alignmentGuide(.bottom, computeValue: { _ in self.columnHeight(data: enumeratedData.element, in: geometry.size.height) })
                     .frame(width: columnWidth, height: self.columnHeight(data: enumeratedData.element, in: geometry.size.height))
+                    .cornerRadius(cornerRadius)
             }
         }
         .frame(width: geometry.size.width, height: geometry.size.height, alignment: .bottom)
@@ -34,9 +36,10 @@ public struct StackedColumnChartStyle<Column: View>: ChartStyle {
         return (CGFloat(index) * columnWidth) + (CGFloat(index - 1) * spacing)
     }
     
-    init(spacing: CGFloat = 8, column: @escaping ([CGFloat]) -> Column) {
+    init(spacing: CGFloat, cornerRadius: CGFloat, column: @escaping ([CGFloat]) -> Column) {
         self.spacing = spacing
         self.column = column
+        self.cornerRadius = cornerRadius
     }
 }
 
@@ -69,7 +72,7 @@ public struct DefaultStackedColumnView: View {
 }
 
 public extension StackedColumnChartStyle where Column == DefaultStackedColumnView {
-    init(spacing: CGFloat = 8, colors: [Color] = [.red, .orange, .yellow, .green, .blue, .purple]) {
-        self.init(spacing: spacing, column: { DefaultStackedColumnView(data: $0, colors: colors) })
+    init(spacing: CGFloat = 8, cornerRadius: CGFloat = 0, colors: [Color] = [.red, .orange, .yellow, .green, .blue, .purple]) {
+        self.init(spacing: spacing, cornerRadius: cornerRadius, column: { DefaultStackedColumnView(data: $0, colors: colors) })
     }
 }
