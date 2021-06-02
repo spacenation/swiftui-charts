@@ -33,22 +33,25 @@ struct Chart_Previews: PreviewProvider {
             LineChartDemo()
             AreaChartDemo()
             ColumnChartDemo()
+            BarChartDemo()
             StackedAreaChartDemo()
             CompositeChartDemo()
+            TimeseriesChartDemo()
+            
         }
     }
 }
 
 
 private struct LineChartDemo: View {
-    @State var data1: [CGFloat] = (2010...2020).map { _ in .random(in: 0.1...1.0) }
+    @State var data1: [CGFloat] = (2010...2020).map { _ in .random(in: 0.0...1.0) }
     @State var trim: CGFloat = 0
     
     var body: some View {
         HStack {
             VStack {
-                AxisLabels(.vertical, data: 1...10, id: \.self) {
-                    Text("\(110 - $0 * 10)")
+                AxisLabels(.vertical, data: (-10...10).reversed(), id: \.self) {
+                    Text("\($0 * 10)")
                         .fontWeight(.bold)
                         .font(Font.system(size: 8))
                         .foregroundColor(.secondary)
@@ -66,7 +69,7 @@ private struct LineChartDemo: View {
                     )
                     .padding()
                     .background(
-                        GridPattern(horizontalLines: 10 + 1, verticalLines: data1.count + 1)
+                        GridPattern(horizontalLines: 20 + 1, verticalLines: data1.count + 1)
                             .inset(by: 1)
                             .stroke(Color.gray.opacity(0.1), style: .init(lineWidth: 2, lineCap: .round))
                     )
@@ -115,12 +118,27 @@ private struct AreaChartDemo: View {
 }
 
 private struct ColumnChartDemo: View {
-    @State var data3: [CGFloat] = (0..<10).map { _ in .random(in: 0.1...1.0) }
+    @State var data3: [CGFloat] = [-0.5,-0.2,-0.1,0.1,0.2,0.5,1]
     
     var body: some View {
         Chart(data: data3)
             .chartStyle(
                 ColumnChartStyle(column: Capsule().foregroundColor(.green), spacing: 2)
+            )
+            .padding()
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(16)
+            .padding()
+    }
+}
+
+private struct BarChartDemo: View {
+    @State var data3: [CGFloat] = (0..<10).map { _ in .random(in: 0.1...1.0) }
+    
+    var body: some View {
+        Chart(data: data3)
+            .chartStyle(
+                BarChartStyle(bar: Capsule().foregroundColor(.green), spacing: 2)
             )
             .padding()
             .background(Color.gray.opacity(0.1))
@@ -183,5 +201,24 @@ private struct CompositeChartDemo: View {
         .background(Color.gray.opacity(0.1))
         .cornerRadius(16)
         .padding()
+    }
+}
+
+private struct TimeseriesChartDemo: View {
+    @State var timeseriesData: [[Float]] = {
+        let times = ["2020-01-01", "2020-01-02", "2020-01-03", "2020-01-04", "2020-01-05", "2020-01-06", "2020-01-07"]
+        
+        var timeseries = [[Float]]()
+        timeseries.append(times.map {_ in Float.random(in: 0.0...1.0)})
+        timeseries.append(times.map {_ in Float.random(in: 0.0...1.0)})
+        timeseries.append(times.map {_ in Float.random(in: 0.0...1.0)})
+        
+        return timeseries
+    }()
+    
+    var colors = [Color.red, Color.green, Color.accentColor]
+    
+    var body: some View {
+        TimeseriesChart(self.timeseriesData, lineColors: self.colors, lineWidth: 1.0)
     }
 }
