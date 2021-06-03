@@ -20,11 +20,11 @@ public struct BarChartStyle<Bar: View>: ChartStyle {
             .map { ColumnData(id: $0.offset, data: $0.element) }
         
         return GeometryReader { geometry in
-            self.barChar(in: geometry, data: data)
+            self.barChart(in: geometry, data: data)
         }
     }
     
-    func barChar(in geometry: GeometryProxy, data: [ColumnData]) -> some View {
+    func barChart(in geometry: GeometryProxy, data: [ColumnData]) -> some View {
         let barHeight = (geometry.size.height - (CGFloat(data.count - 1) * spacing)) / CGFloat(data.count)
         
         return ZStack(alignment: .topLeading) {
