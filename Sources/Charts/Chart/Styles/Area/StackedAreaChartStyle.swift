@@ -8,7 +8,7 @@ public struct StackedAreaChartStyle: ChartStyle {
     public func makeBody(configuration: Self.Configuration) -> some View {
         ZStack {
             ForEach(Array(configuration.dataMatrix.transpose().stacked().enumerated()), id: \.self.offset) { enumeratedData in
-                self.colors.prefix(configuration.dataMatrix.count)[enumeratedData.offset % self.colors.count].clipShape(
+                colors[enumeratedData.offset % colors.count].clipShape(
                     AreaChart(
                         unitData: enumeratedData.element,
                         lineType: self.lineType
