@@ -1,5 +1,5 @@
 import SwiftUI
-import Shapes
+@_exported import Shapes
 
 public struct Chart: View {
     @Environment(\.chartStyle) private var style
