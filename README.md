@@ -1,5 +1,4 @@
-# SwiftUI Charts
-
+## SwiftUI Charts
 Build custom charts with SwiftUI
 
 <center>
@@ -60,8 +59,23 @@ Chart(data: [0.1, 0.3, 0.2, 0.5, 0.4, 0.9, 0.1])
 ```swift
 Chart(data: matrix)
     .chartStyle(
-        StackedColumnChartStyle(spacing: 2, colors: [.yellow, .orange, .red])
+        StackedColumnChartStyle(spacing: 2, cornerRadius: 3, colors: [.yellow, .orange, .red])
     )
+```
+
+## Install
+Add `Charts` to your project with Swift Package Manager
+
+```swift
+// swift-tools-version:5.1
+import PackageDescription
+
+let package = Package(
+    name: "YOUR_PROJECT",
+    dependencies: [
+        .package(url: "https://github.com/spacenation/swiftui-charts.git", from: "1.0.0"),
+    ]
+)
 ```
 
 ## Roadmap
