@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.3
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 import PackageDescription
 
@@ -11,7 +11,7 @@ let package = Package(
         .library(name: "Charts", targets: ["Charts"])
     ],
     dependencies: [
-        .package(url: "https://github.com/swift-extensions/swiftui-shapes.git", .upToNextMajor(from: "1.0.0"))
+        .package(name: "Shapes", url: "https://github.com/spacenation/swiftui-shapes.git", .upToNextMajor(from: "1.1.0"))
     ],
     targets: [
         .target(name: "Charts",dependencies: ["Shapes"])
