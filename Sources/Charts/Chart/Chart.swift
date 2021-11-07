@@ -35,6 +35,7 @@ struct Chart_Previews: PreviewProvider {
             ColumnChartDemo()
             BarChartDemo()
             StackedAreaChartDemo()
+            StackedAreaChartDualDemo()
             CompositeChartDemo()
         }
     }
@@ -163,6 +164,42 @@ private struct StackedAreaChartDemo: View {
             )
             .cornerRadius(16)
             .padding()
+    }
+}
+
+private struct StackedAreaChartDualDemo: View {
+    @State var matrixDataTop: [[CGFloat]] = (0..<20).map { _ in (0..<3).map { _ in CGFloat.random(in: 0.00...0.33) } }
+    @State var matrixDataBottom: [[CGFloat]] = (0..<20).map { _ in (0..<3).map { _ in CGFloat.random(in: 0.00...0.33) } }
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            Chart(data: matrixDataTop)
+                .chartStyle(
+                    StackedAreaChartStyle(.quadCurve, colors: [.yellow, .orange, .red])
+                )
+                .background(
+                    Color.gray.opacity(0.1)
+                        .overlay(
+                            GridPattern(verticalLines: matrixDataTop.count)
+                                .inset(by: 1)
+                                .stroke(Color.red.opacity(0.2), style: .init(lineWidth: 1, lineCap: .round))
+                        )
+                )
+            Chart(data: matrixDataBottom)
+                .chartStyle(
+                    StackedAreaChartStyle(.quadCurve, colors: [.gray, .green, .blue], yMirror: true)
+                )
+                .background(
+                    Color.gray.opacity(0.1)
+                        .overlay(
+                            GridPattern(verticalLines: matrixDataBottom.count)
+                                .inset(by: 1)
+                                .stroke(Color.red.opacity(0.2), style: .init(lineWidth: 1, lineCap: .round))
+                        )
+                )
+        }
+        .cornerRadius(16)
+        .padding()
     }
 }
 

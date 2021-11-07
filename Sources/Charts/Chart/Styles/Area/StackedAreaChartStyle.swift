@@ -4,6 +4,7 @@ import Shapes
 public struct StackedAreaChartStyle: ChartStyle {
     private let lineType: LineType
     private let colors: [Color]
+    private let yMirror: Bool
     
     public func makeBody(configuration: Self.Configuration) -> some View {
         ZStack {
@@ -11,7 +12,8 @@ public struct StackedAreaChartStyle: ChartStyle {
                 colors[enumeratedData.offset % colors.count].clipShape(
                     AreaChart(
                         unitData: enumeratedData.element,
-                        lineType: self.lineType
+                        lineType: self.lineType,
+                        yMirror: yMirror
                     )
                 )
                 .zIndex(-Double(enumeratedData.offset))
@@ -20,9 +22,10 @@ public struct StackedAreaChartStyle: ChartStyle {
         .drawingGroup()
     }
     
-    public init(_ lineType: LineType = .quadCurve, colors: [Color] = [.red, .orange, .yellow, .green, .blue, .purple]) {
+    public init(_ lineType: LineType = .quadCurve, colors: [Color] = [.red, .orange, .yellow, .green, .blue, .purple], yMirror: Bool = false) {
         self.lineType = lineType
         self.colors = colors
+        self.yMirror = yMirror
     }
 }
 
