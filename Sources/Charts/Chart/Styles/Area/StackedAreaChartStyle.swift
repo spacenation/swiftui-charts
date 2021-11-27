@@ -3,15 +3,17 @@ import Shapes
 
 public struct StackedAreaChartStyle: ChartStyle {
     private let lineType: LineType
-    private let colors: [Color]
+    private let fills: [AnyView]
+    private let yMirror: Bool
     
     public func makeBody(configuration: Self.Configuration) -> some View {
         ZStack {
             ForEach(Array(configuration.dataMatrix.transpose().stacked().enumerated()), id: \.self.offset) { enumeratedData in
-                colors[enumeratedData.offset % colors.count].clipShape(
+                fills[enumeratedData.offset % fills.count].clipShape(
                     AreaChart(
                         unitData: enumeratedData.element,
-                        lineType: self.lineType
+                        lineType: self.lineType,
+                        yMirror: yMirror
                     )
                 )
                 .zIndex(-Double(enumeratedData.offset))
@@ -20,9 +22,15 @@ public struct StackedAreaChartStyle: ChartStyle {
         .drawingGroup()
     }
     
-    public init(_ lineType: LineType = .quadCurve, colors: [Color] = [.red, .orange, .yellow, .green, .blue, .purple]) {
+    public init(_ lineType: LineType = .quadCurve, colors: [Color] = [.red, .orange, .yellow, .green, .blue, .purple], yMirror: Bool = false) {
+        let fills = colors.map { AnyView($0) }
+        self.init(lineType, fills: fills, yMirror: yMirror)
+    }
+
+    public init(_ lineType: LineType = .quadCurve, fills: [AnyView] = [], yMirror: Bool = false) {
         self.lineType = lineType
-        self.colors = colors
+        self.fills = fills
+        self.yMirror = yMirror
     }
 }
 
