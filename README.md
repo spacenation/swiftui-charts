@@ -38,7 +38,12 @@ Chart(data: [0.1, 0.3, 0.2, 0.5, 0.4, 0.9, 0.1])
 ```swift
 Chart(data: matrix)
     .chartStyle(
-        StackedAreaChartStyle(.quadCurve, colors: [.yellow, .orange, .red])
+        StackedAreaChartStyle(.quadCurve, colors: [.yellow, .orange, .red], yMirror: false)
+    )
+    
+Chart(data: matrix)
+    .chartStyle(
+        StackedAreaChartStyle(.quadCurve, fills: [AnyView(Color.yellow), AnyView(Color.orange), AnyView(Color.red)], yMirror: true)
     )
 ```
 

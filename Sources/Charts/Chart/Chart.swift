@@ -101,7 +101,7 @@ private struct AreaChartDemo: View {
     var body: some View {
         Chart(data: data2)
             .chartStyle(
-                AreaChartStyle(.quadCurve, fill: LinearGradient(gradient: .init(colors: [Color.red.opacity(0.8), Color.red.opacity(0.2)]), startPoint: .top, endPoint: .bottom))
+                AreaChartStyle(.quadCurve, fill: LinearGradient(gradient: .init(colors: [Color.red.opacity(0.8), Color.red.opacity(0.2)]), startPoint: .top, endPoint: .bottom), yMirror: false)
             )
             .background(
                 Color.gray.opacity(0.1)
@@ -152,7 +152,7 @@ private struct StackedAreaChartDemo: View {
     var body: some View {
         Chart(data: matrixData)
             .chartStyle(
-                StackedAreaChartStyle(.quadCurve, colors: [.yellow, .orange, .red])
+                StackedAreaChartStyle(.quadCurve, fills: fills, yMirror: false)
             )
             .background(
                 Color.gray.opacity(0.1)
@@ -165,12 +165,26 @@ private struct StackedAreaChartDemo: View {
             .cornerRadius(16)
             .padding()
     }
+    
+    private var fills: [AnyView] {
+        [
+            AnyView(
+                LinearGradient(gradient: .init(colors: [Color.yellow.opacity(0.8), Color.green.opacity(0.2)]), startPoint: .top, endPoint: .bottom)
+            ),
+            AnyView(
+                LinearGradient(gradient: .init(colors: [Color.orange.opacity(0.8), Color.green.opacity(0.2)]), startPoint: .top, endPoint: .bottom)
+            ),
+            AnyView(
+                LinearGradient(gradient: .init(colors: [Color.red.opacity(0.8), Color.green.opacity(0.2)]), startPoint: .top, endPoint: .bottom)
+            )
+        ]
+    }
 }
 
 private struct StackedAreaChartDualDemo: View {
     @State var matrixDataTop: [[CGFloat]] = (0..<20).map { _ in (0..<3).map { _ in CGFloat.random(in: 0.00...0.33) } }
     @State var matrixDataBottom: [[CGFloat]] = (0..<20).map { _ in (0..<3).map { _ in CGFloat.random(in: 0.00...0.33) } }
-    
+
     var body: some View {
         VStack(spacing: 0) {
             Chart(data: matrixDataTop)
@@ -187,7 +201,7 @@ private struct StackedAreaChartDualDemo: View {
                 )
             Chart(data: matrixDataBottom)
                 .chartStyle(
-                    StackedAreaChartStyle(.quadCurve, colors: [.gray, .green, .blue], yMirror: true)
+                    StackedAreaChartStyle(.quadCurve, colors: [.yellow, .green, .blue], yMirror: true)
                 )
                 .background(
                     Color.gray.opacity(0.1)
